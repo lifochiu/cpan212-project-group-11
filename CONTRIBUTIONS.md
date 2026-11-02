@@ -4,7 +4,7 @@
 
 ### M2
 
-# Chiu Li Feng
+Chiu Li Feng
 
 -Prepare project propose
 -Build src folder
