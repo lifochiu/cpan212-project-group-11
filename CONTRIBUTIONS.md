@@ -6,6 +6,6 @@
 
 # Chiu Li Feng
 
-Prepare project propose
-Build src folder
-Connect USDA API service to project
+-Prepare project propose
+-Build src folder
+-Connect USDA API service to project
