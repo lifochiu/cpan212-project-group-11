@@ -22,11 +22,21 @@ NutraPlanner API: analysis user's body information.
 USDA DRI Calculator: provide standarize intake nutrition portion.
 USDA FoodData Central: provide food database.
 
-# 4 Data model draft
 
-Meal plan: a meal plan can have one or many recipes
-Recipe: a recipe can have one or many ingredients
 
+# 4 Data Model Draft
+
+Meal Plan
+- id: Integer (required)
+- name: String (required)
+- date: Date (required)
+- A meal plan can contain one or more recipes.
+
+    Recipe
+- id: Integer (required)
+- name: String (required)
+- ingredients: Array (required)
+- A recipe can contain one or more ingredients.
 # 5 Endpoint List
 
 | Method | Path                     | What it does                                                                                                           | Success Status | Error Status  |
