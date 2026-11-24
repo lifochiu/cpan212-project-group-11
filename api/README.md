@@ -58,3 +58,35 @@ curl -i -X PATCH "http://localhost:4000/api/recipe/recipe1" \
 # Expected status: 404 Not Found
 
 curl -i "http://localhost:4000/api/xxx"
+
+# 8. List with filter, sort and pagination
+
+# Expected status: 200 OK
+
+curl -i "http://localhost:4000/api/recipe?category=dinner&sort=-cookTimeMinutes&page=2&limit=4"
+
+# 9. Sort field not on the allowlist
+
+# Expected status: 400 Bad Request
+
+curl -i "http://localhost:4000/api/recipe?sort=abc"
+
+# 10. Mongoose validation error
+
+# Expected status: 400 Bad Request
+
+curl -i -X PATCH "http://localhost:4000/api/recipe/RECIPE_ID" \
+ -H "Content-Type: application/json" \
+ -d '{"servings": 999}'
+
+# 11. Badly formed id
+
+# Expected status: 404 Not Found
+
+curl -i "http://localhost:4000/api/recipe/bad"
+
+# 12. Meal plan with populated recipes (get PLAN_ID from GET /api/meal-plans)
+
+# Expected status: 200 OK
+
+curl -i "http://localhost:4000/api/meal-plans/PLAN_ID"
