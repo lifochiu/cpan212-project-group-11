@@ -5,6 +5,7 @@ import { RecipesRouter } from "./routers/recipeRouter.js";
 import { notFound } from "./middleware/notFound.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { getFoods } from "./controllers/foodController.js";
+import { MealPlansRouter } from "./routers/mealPlanRouter.js";
 
 export const app = express();
 
@@ -13,5 +14,6 @@ app.use(express.json());
 app.use(express.static(path.join(import.meta.dirname, "..", "public")));
 app.use("/api/recipe", RecipesRouter);
 app.get("/api/foods/search", getFoods);
+app.use("/api/meal-plans", MealPlansRouter);
 app.use(notFound);
 app.use(errorHandler);

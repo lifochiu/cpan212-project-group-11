@@ -1,5 +1,3 @@
-import { type } from "node:os";
-
 export function validateRecipeInput(body, { partial = false } = {}) {
   if (typeof body !== "object" || body == null || Array.isArray(body))
     return {
@@ -29,6 +27,16 @@ export function validateRecipeInput(body, { partial = false } = {}) {
       errors.description = "description must be a non-empty string";
     } else {
       value.description = body.description.trim();
+    }
+  }
+
+  //category
+  if (shouldValidate("category")) {
+    if (!["breakfast", "lunch", "dinner", "snack"].includes(body.category)) {
+      errors.category =
+        "category must be one of: breakfast, lunch, dinner, snack";
+    } else {
+      value.category = body.category;
     }
   }
 
